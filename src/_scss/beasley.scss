@@ -1,0 +1,122 @@
+// Imports
+// ------------------------------------
+@import url(http://fonts.googleapis.com/css?family=Lato:300|Raleway:100,200,300,400,500);
+
+
+// Globals
+// ------------------------------------
+$w-100		: 100%;
+$h-100		: 100%;
+$lato		: 'Lato', sans-serif;
+$raleway	: 'Raleway', sans-serif;
+$base-white	: #f5f4f3;
+$dark-grey	: #2c2b2c;
+$text-dark	: #535154;
+$text-light	: #7e7c7f;
+$red 		: #be0f0f;
+$white 		: #ffffff;
+
+
+// Mixins
+// ------------------------------------
+@mixin transition($timing){
+-webkit-transition: $timing;
+-moz-transition: $timing;
+transition: $timing;
+}
+
+
+// Functions
+// ------------------------------------
+@function rem-calc($px) {
+	// Skeleton is based on 10px for rem.
+	$remValue: $px / 10;
+	@return #{$remValue}rem;
+}
+
+
+// CSS
+// ------------------------------------
+body {
+	color: $text-dark;
+	background-color: $base-white;
+	font-family: $raleway;
+	font-size: rem-calc(15);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+	h1 {
+		font-size: rem-calc(60);
+		font-weight: 400;
+		margin-bottom: rem-calc(9);
+	}
+
+	h2 {
+		font-size: rem-calc(48);
+		font-weight: 300;
+		margin-bottom: rem-calc(3);
+	}
+
+	h5 {
+		font-weight: 300;
+	}
+}
+
+.header {
+	width: $w-100;
+	color: $white;
+	background-color: $dark-grey;
+	text-align: center;
+	padding-top: rem-calc(200);
+
+	.dashes {
+		color: $red;
+		display: inline-block;
+		letter-spacing: -4px;
+	}
+
+	h5 {
+		font-weight: 200;
+	}
+}
+
+.contact {
+	width: $w-100;
+	padding-top: rem-calc(100);
+	padding-bottom: rem-calc(100);
+
+	.container {
+		max-width: 960px;
+	}
+
+	h5 {
+		color: $text-light;
+		letter-spacing: 1px;
+	}
+
+	input {
+		height: 45px;
+	}
+
+	textarea {
+		resize: vertical;
+	}
+
+	input, textarea {
+		color: $white;
+		background-color: $dark-grey;
+		border-radius: 0;
+		border: none;
+	}
+}
+
+
+// Utilities
+// ------------------------------------
+.upper {
+	text-transform: uppercase;
+}
+
+.italic {
+	font-style: italic;
+}

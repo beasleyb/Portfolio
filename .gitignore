@@ -1,0 +1,31 @@
+# Build Systems
+# ---------------------
+node_modules/
+.sass_cache
+*.css.map
+
+
+# Packages
+# ---------------------
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+
+# Logs
+# ---------------------
+*.log
+
+
+# OS Files
+# ---------------------
+.DS_Store
+.DS_Store
+._*
+ehthumbs.db
+Thumbs.db
