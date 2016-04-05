@@ -4,6 +4,9 @@ node_modules/
 .sass_cache
 *.css.map
 
+# Directories
+# ---------------------
+src/img/
 
 # Packages
 # ---------------------
