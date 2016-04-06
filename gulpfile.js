@@ -1,8 +1,8 @@
-// ------------------------------------
+// --------------------------------------------
 // Required
-// ------------------------------------
+// --------------------------------------------
 
-var browserSync 	= require('browser-sync').create();
+var browsersync 	= require('browser-sync').create();
 var merge 			= require('merge-stream');
 var gulp 			= require('gulp');
 var sass 			= require('gulp-sass');
@@ -10,35 +10,52 @@ var uglify 			= require('gulp-uglify');
 var rename			= require('gulp-rename');
 var autoprefixer	= require('gulp-autoprefixer');
 
-// ------------------------------------
-// Tasks
-// ------------------------------------
+// --------------------------------------------
+// Browsersync
+// --------------------------------------------
+gulp.task('browsersync', function() {
+	browsersync.init({
+		server: {
+			baseDir: 'public/'
+		}
+	});
+});
 
-// Compile, minify, and prefix custom scss
+// --------------------------------------------
+// Sass
+// --------------------------------------------
+
+// Custom
 gulp.task('sass:custom', function () {
 	return gulp
 		.src('src/scss/*.scss')
 		.pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
 		.pipe(autoprefixer({ browsers: ['last 2 versions'], cascade: false }))
 		.pipe(rename({suffix:'.min'}))
-    	.pipe(gulp.dest('public/css'));
+    	.pipe(gulp.dest('public/css'))
+    	.pipe(browsersync.reload({stream:true}));
 });
 
-// Compile, minify, and prefix vendor scss
+// Vendor
 gulp.task('sass:vendor', function () {
 	return gulp
 		.src('src/scss/vendor/*.scss')
 		.pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
 		.pipe(autoprefixer({ browsers: ['last 2 versions'], cascade: false }))
 		.pipe(rename({suffix:'.min'}))
-    	.pipe(gulp.dest('public/css/vendor'));
+    	.pipe(gulp.dest('public/css/vendor'))
+    	.pipe(browsersync.reload({stream:true}));
 });
 
-// Copy files to public
+// --------------------------------------------
+// Copy
+// --------------------------------------------
+
 gulp.task('copy', function() {
 	var html = gulp
-		.src('src/index.html')
-		.pipe(gulp.dest('public'));
+		.src('src/*.html')
+		.pipe(gulp.dest('public'))
+		.pipe(browsersync.reload({stream:true}));
 
 	var images = gulp
 		.src('src/img/*.*')
@@ -47,12 +64,18 @@ gulp.task('copy', function() {
 	return merge(html, images);
 });
 
-// Watch files
-gulp.task('watch', function () {
+// --------------------------------------------
+// Watch
+// --------------------------------------------
+
+gulp.task('watch', ['browsersync'], function () {
 	gulp.watch('src/scss/*.scss', ['sass:custom']);
 	gulp.watch('src/scss/vendor/*.scss', ['sass:vendor']);
-	gulp.watch('src/index.html', ['copy']);
+	gulp.watch(['src/*.html', 'src/img/*.*'], ['copy']);
 });
 
+// --------------------------------------------
 // Default
-gulp.task('default', ['sass:custom', 'sass:vendor', 'copy', 'watch']);
+// --------------------------------------------
+
+gulp.task('default', ['sass:custom', 'sass:vendor', 'copy', 'browsersync', 'watch']);
