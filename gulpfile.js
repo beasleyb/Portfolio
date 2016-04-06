@@ -7,6 +7,7 @@ var merge 			= require('merge-stream');
 var gulp 			= require('gulp');
 var sass 			= require('gulp-sass');
 var uglify 			= require('gulp-uglify');
+var rename			= require('gulp-rename');
 var autoprefixer	= require('gulp-autoprefixer');
 
 // ------------------------------------
@@ -19,6 +20,7 @@ gulp.task('sass:custom', function () {
 		.src('src/scss/*.scss')
 		.pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
 		.pipe(autoprefixer({ browsers: ['last 2 versions'], cascade: false }))
+		.pipe(rename({suffix:'.min'}))
     	.pipe(gulp.dest('public/css'));
 });
 
@@ -28,6 +30,7 @@ gulp.task('sass:vendor', function () {
 		.src('src/scss/vendor/*.scss')
 		.pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
 		.pipe(autoprefixer({ browsers: ['last 2 versions'], cascade: false }))
+		.pipe(rename({suffix:'.min'}))
     	.pipe(gulp.dest('public/css/vendor'));
 });
 
