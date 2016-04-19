@@ -1,6 +1,7 @@
 // Imports
 // ------------------------------------
 @import url(http://fonts.googleapis.com/css?family=Lato:300|Raleway:100,200,300,400,500);
+@import "vendor/skeleton.scss";
 
 
 // Globals
@@ -14,17 +15,35 @@ $off-white	: #f5f4f3;
 $dark-grey	: #1b1a1b;
 $medium-grey: #2c2b2c;
 $light-grey : #e5e5e5;
-$text-grey	: #828282;
+$alt-grey	: #828282;
 $yellow		: #fecf39;
 $red		: #ff7979;
 
 
 // Mixins
 // ------------------------------------
-@mixin transition($timing){
+@mixin transition($timing) {
 -webkit-transition: $timing;
 -moz-transition: $timing;
 transition: $timing;
+}
+
+@mixin text-color($colors) {
+	@each $color in $colors {
+		$hex: null;
+
+		@if $color == 'white' 		{ $hex: $white; }
+		@if $color == 'off-white' 	{ $hex: $off-white; }
+		@if $color == 'dark-grey' 	{ $hex: $dark-grey; }
+		@if $color == 'medium-grey'	{ $hex: $medium-grey; }
+		@if $color == 'light-grey' 	{ $hex: $light-grey; }
+		@if $color == 'alt-grey' 	{ $hex: $alt-grey; }
+		@if $color == 'yellow' 		{ $hex: $yellow; }
+		@if $color == 'red' 		{ $hex: $red; }
+
+		.text-#{$color},
+		%text-#{$color} { color: $hex; }
+	}
 }
 
 
@@ -47,26 +66,25 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 
-	h1 {
-		font-size: rem-calc(60);
+	h1,
+	h2,
+	h5 {
 		font-weight: 300;
+	}
+
+	h1 {
 		letter-spacing: rem-calc(2);
 		margin-bottom: rem-calc(9);
 	}
 
 	h2 {
-		font-size: rem-calc(48);
-		font-weight: 300;
 		margin-bottom: rem-calc(3);
 	}
 
-	h5 {
-		font-weight: 300;
+	@media (#{$bp-larger-than-phablet}) {
+		h1 { font-size: rem-calc(60); }
+		h2 { font-size: rem-calc(48); }
 	}
-}
-
-.container {
-	max-width: 960px;
 }
 
 .header {
@@ -83,6 +101,11 @@ body {
 
 .socials {
 	background: $medium-grey;
+	padding: rem-calc(48) 0;
+
+	img[src*=".svg"] {
+		width: rem-calc(42);
+	}
 }
 
 .contact {
@@ -95,13 +118,17 @@ body {
 		margin-bottom: rem-calc(30);
 	}
 
+	.container {
+		max-width: rem-calc(960);
+	}
+
 	h5 {
-		color: $text-grey;
+		color: $alt-grey;
 		letter-spacing: 1px;
 	}
 
 	input {
-		height: rem-calc(45);
+		height: rem-calc(48);
 	}
 
 	textarea {
@@ -109,7 +136,8 @@ body {
 		resize: vertical;
 	}
 
-	input, textarea {
+	input,
+	textarea {
 		background-color: $medium-grey;
 		color: $white;
 		padding: rem-calc(12) rem-calc(18);
@@ -118,19 +146,19 @@ body {
 		font-size: rem-calc(18);
 
 		&::-webkit-input-placeholder {
-			color: $text-grey;
+			color: $alt-grey;
 		}
 
 		&::-moz-placeholder {
-			color: $text-grey;
+			color: $alt-grey;
 		}
 
 		&:-ms-input-placeholder {
-			color: $text-grey;
+			color: $alt-grey;
 		}
 
 		&:-moz-placeholder {
-			color: $text-grey;
+			color: $alt-grey;
 		}
 
 		&:focus {
@@ -140,19 +168,37 @@ body {
 			box-shadow: inset 6px 0px 0px 0px $yellow;
 		}
 	}
+
+	.submit-button {
+		height: rem-calc(48);
+		padding: rem-calc(6) rem-calc(18);
+		background-color: $medium-grey;
+		color: $white;
+		border-radius: 0;
+		border: none;
+
+		img[src*=".svg"] {
+			height: rem-calc(36);
+		}
+
+		&:hover {
+
+			img[src*=".svg"] {
+				fill: $yellow;
+			}
+		}
+	}
 }
 
 
 // Utilities
 // ------------------------------------
+@include text-color('white' 'off-white' 'dark-grey' 'medium-grey' 'light-grey' 'alt-grey' 'yellow' 'red');
+
 .upper {
 	text-transform: uppercase;
 }
 
 .italic {
 	font-style: italic;
-}
-
-.text-grey {
-	color: $text-grey;
 }
