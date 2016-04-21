@@ -1,10 +1,17 @@
+/*!
+* Custom CSS for Brandon Beasley's portfolio
+* www.brandonbeasley.site
+* Free to use under the MIT license.
+* http://www.opensource.org/licenses/mit-license.php
+* 4/1/2016
+*/
+
 // Imports
 // ------------------------------------
 @import url(http://fonts.googleapis.com/css?family=Lato:300|Raleway:100,200,300,400,500);
-@import "vendor/skeleton.scss";
 
 
-// Globals
+// Variables
 // ------------------------------------
 $w-100		: 100%;
 $h-100		: 100%;
@@ -18,6 +25,12 @@ $light-grey : #e5e5e5;
 $alt-grey	: #828282;
 $yellow		: #fecf39;
 $red		: #ff7979;
+// Skeleton breakpoints
+$bp-larger-than-mobile    : "min-width: 400px"  !default;
+$bp-larger-than-phablet   : "min-width: 550px"  !default;
+$bp-larger-than-tablet    : "min-width: 750px"  !default;
+$bp-larger-than-desktop   : "min-width: 1000px" !default;
+$bp-larger-than-desktophd : "min-width: 1250px" !default;
 
 
 // Mixins
@@ -69,7 +82,7 @@ $red		: #ff7979;
 // ------------------------------------
 body {
 	color: $medium-grey;
-	background-color: $white;
+	background: $white;
 	font-family: $raleway;
 	font-size: rem-calc(18);
 	-webkit-font-smoothing: antialiased;
@@ -82,12 +95,18 @@ body {
 	}
 
 	h1 {
-		letter-spacing: rem-calc(2);
+		letter-spacing: 2px;
 		margin-bottom: rem-calc(9);
 	}
 
 	h2 {
 		margin-bottom: rem-calc(3);
+	}
+
+	h5 {
+		margin-bottom: 0;
+		letter-spacing: 1px;
+		color: $alt-grey;
 	}
 
 	@media (#{$bp-larger-than-phablet}) {
@@ -105,10 +124,10 @@ body {
 	}
 }
 
+// Header
 .header {
-	width: $w-100;
 	color: $white;
-	background-color: $medium-grey;
+	background: $medium-grey;
 	text-align: center;
 	padding: rem-calc(96) 0;
 
@@ -117,32 +136,85 @@ body {
 	}
 }
 
-.socials {
-	background: $medium-grey;
-	padding: rem-calc(48) 0;
+// Works section
+.works {
 
-	img[src*=".svg"] {
-		width: rem-calc(42);
+	.works-header {
+		padding: rem-calc(30) 0;
+		background: $light-grey;
 	}
 }
 
+// Social Section
+.socials {	
+	padding: rem-calc(36) 0;
+	background: $medium-grey;
+
+	.socials-button {
+		padding: rem-calc(12) 0;
+		vertical-align: middle;
+	}
+
+	.socials-icon {
+		width: rem-calc(42);
+		padding-right: rem-calc(24);
+		vertical-align: middle;
+	}
+
+	@media (#{$bp-larger-than-phablet}) {
+		.socials-button {
+			text-align: center;
+		}
+
+		.socials-icon {
+			display: block;
+			margin: 0 auto rem-calc(12) auto;
+			padding-right: 0;
+		}
+
+		.button-primary > .button-subtext {
+			display: none;
+		}
+	}
+
+	@media (#{$bp-larger-than-desktophd}) {
+		.socials-button {
+			&:nth-of-type(1) {
+				text-align: left;
+			}
+
+			&:nth-of-type(2) {
+				text-align: center;
+			}
+
+			&:nth-of-type(3) {
+				text-align: right;
+			}
+		}
+
+		.socials-icon {
+			display: inline;
+			padding-right: rem-calc(12);
+		}
+
+		.button-primary > .button-subtext {
+			display: inline;
+		}
+	}
+}
+
+// Contact section
 .contact {
-	width: $w-100;
 	padding-bottom: rem-calc(96);
 
-	.sub-header {
-		background: $light-grey;
-		padding: rem-calc(96) 0 0 0;
+	.contact-header {
 		margin-bottom: rem-calc(30);
+		padding: rem-calc(96) 0 rem-calc(18) 0;
+		background: $light-grey;
 	}
 
 	.container {
 		max-width: rem-calc(960);
-	}
-
-	h5 {
-		color: $alt-grey;
-		letter-spacing: 1px;
 	}
 
 	input {
@@ -156,12 +228,12 @@ body {
 
 	input,
 	textarea {
-		background-color: $medium-grey;
-		color: $white;
 		padding: rem-calc(12) rem-calc(18);
+		font-size: rem-calc(18);
+		background: $medium-grey;
+		color: $white;
 		border-radius: 0;
 		border: none;
-		font-size: rem-calc(18);
 
 		&::-webkit-input-placeholder {
 			color: $alt-grey;
@@ -186,21 +258,9 @@ body {
 			box-shadow: inset 6px 0px 0px 0px $yellow;
 		}
 	}
-
-	.submit-button {
-		height: rem-calc(48);
-		padding: rem-calc(6) rem-calc(18);
-		background-color: $medium-grey;
-		color: $white;
-		border-radius: 0;
-		border: none;
-
-		img[src*=".svg"] {
-			height: rem-calc(36);
-		}
-	}
 }
 
+// Footer
 .footer {
 	padding: rem-calc(36) 0;
 	text-align: center;
@@ -215,6 +275,7 @@ body {
 // ------------------------------------
 .button-primary {
 	position: relative;
+	display: inline-block;
 	width: auto;
 	padding: rem-calc(10) rem-calc(15);
 	font-size: rem-calc(20);
@@ -238,8 +299,8 @@ body {
 		@include transition-delay(500ms);
 	}
 
-	.button-text,
-	span.button-text {
+	.button-subtext,
+	span.button-subtext {
 		@include transition(700ms);
 		color: $alt-grey;
 	}
@@ -257,8 +318,8 @@ body {
 			@include transition(500ms);
 		}
 
-		.button-text,
-		span.button-text {
+		.button-subtext,
+		span.button-subtext {
 			color: $medium-grey;
 			@include transition-delay(500ms);
 		}
@@ -281,6 +342,18 @@ body {
 	}
 }
 
+.submit-button {
+	height: rem-calc(48);
+	padding: rem-calc(6) rem-calc(18);
+	background: $medium-grey;
+	color: $white;
+	border-radius: 0;
+	border: none;
+
+	img[src*=".svg"] {
+		height: rem-calc(36);
+	}
+}
 
 // Utilities
 // ------------------------------------
