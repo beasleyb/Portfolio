@@ -13,18 +13,18 @@
 
 // Variables
 // ------------------------------------
-$w-100		: 100%;
-$h-100		: 100%;
-$lato		: 'Lato', sans-serif;
-$raleway	: 'Raleway', sans-serif;
-$white 		: #ffffff;
-$off-white	: #f5f4f3;
-$dark-grey	: #1b1a1b;
-$medium-grey: #2c2b2c;
-$light-grey : #e5e5e5;
-$alt-grey	: #828282;
-$yellow		: #fecf39;
-$red		: #ff7979;
+$w-100			: 100%;
+$h-100			: 100%;
+$lato			: 'Lato', sans-serif;
+$raleway		: 'Raleway', sans-serif;
+$white 			: #ffffff;
+$off-white		: #f5f4f3;
+$dark-grey		: #1b1a1b;
+$medium-grey	: #2c2b2c;
+$light-grey		: #e5e5e5;
+$alt-grey		: #828282;
+$yellow			: #fecf39;
+$red			: #ff7979;
 // Skeleton breakpoints
 $bp-larger-than-mobile    : "min-width: 400px"  !default;
 $bp-larger-than-phablet   : "min-width: 550px"  !default;
@@ -84,7 +84,7 @@ body {
 	color: $medium-grey;
 	background: $white;
 	font-family: $raleway;
-	font-size: rem-calc(18);
+	font-size: rem-calc(16);
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 
@@ -122,6 +122,10 @@ body {
 	a.button-secondary {
 		cursor: pointer;
 	}
+
+	img {
+		width: $w-100;
+	}
 }
 
 // Header
@@ -134,14 +138,79 @@ body {
 	h5 {
 		font-weight: 200;
 	}
+
+	.bracket {
+		font-family: $lato;
+		color: $yellow;
+	}
 }
 
 // Works section
 .works {
+	background: $dark-grey;
 
 	.works-header {
 		padding: rem-calc(30) 0;
 		background: $light-grey;
+	}
+
+	.tiles {
+		max-width: rem-calc(1920);
+		margin: 0 auto;
+		overflow: auto;
+	}
+
+	.tile {
+		position: relative;
+		width: $w-100;
+		float: left;
+
+		&:hover {
+			.tile-text {
+				opacity: 1;
+			}
+
+			img {
+				filter: grayscale(0) brightness(50%);
+			}
+		}
+	}
+
+	.tile-text {
+		z-index: 2;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		padding: rem-calc(24);
+		color: $white;
+		text-align: center;
+		opacity: 0;
+		@include transition(750ms ease);
+	}
+
+	.button-secondary {
+		width: $w-100;
+		max-width: rem-calc(150);
+	}
+
+	img {
+		display: block;
+		filter: grayscale(100%);
+		@include transition(750ms ease);
+	}
+
+	@media (#{$bp-larger-than-phablet}) {
+		.tile {
+			width: $w-100/2;
+		}
+	}
+
+	@media (#{$bp-larger-than-desktophd}) {
+		.tile {
+			width: $w-100/4;
+		}
 	}
 }
 
@@ -327,9 +396,10 @@ body {
 }
 
 .button-secondary {
+	display: inline-block;
 	width: auto;
 	padding: rem-calc(10) rem-calc(15);
-	font-size: rem-calc(18);
+	font-size: rem-calc(20);
 	color: $white;
 	background: none;
 	border: 2px solid $white;

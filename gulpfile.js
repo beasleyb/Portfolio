@@ -2,7 +2,7 @@
 // Required
 // --------------------------------------------
 
-var browsersync 	= require('browser-sync').create();
+var browsersync		= require('browser-sync').create();
 var merge 			= require('merge-stream');
 var gulp 			= require('gulp');
 var sass 			= require('gulp-sass');
@@ -33,8 +33,8 @@ gulp.task('sass:custom', function () {
 		.pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
 		.pipe(autoprefixer({ browsers: ['last 2 versions'], cascade: false }))
 		.pipe(rename({suffix:'.min'}))
-    	.pipe(gulp.dest('public/css'))
-    	.pipe(browsersync.reload({stream:true}));
+		.pipe(gulp.dest('public/css'))
+		.pipe(browsersync.reload({stream:true}));
 });
 
 // Vendor
@@ -44,8 +44,8 @@ gulp.task('sass:vendor', function () {
 		.pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
 		.pipe(autoprefixer({ browsers: ['last 2 versions'], cascade: false }))
 		.pipe(rename({suffix:'.min'}))
-    	.pipe(gulp.dest('public/css/vendor'))
-    	.pipe(browsersync.reload({stream:true}));
+		.pipe(gulp.dest('public/css/vendor'))
+		.pipe(browsersync.reload({stream:true}));
 });
 
 // --------------------------------------------
