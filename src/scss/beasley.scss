@@ -140,8 +140,25 @@ body {
 	}
 
 	.bracket {
-		font-family: $lato;
+		display: none;
 		color: $yellow;
+		font-weight: 400;
+		padding: 0 rem-calc(6);
+	}
+
+	@media (#{$bp-larger-than-desktop}) {
+		.bracket {
+			display: inline-block;
+		}
+	}
+}
+
+// Intro section
+.intro {
+
+	.intro-header {
+		padding: rem-calc(30) 0;
+		background: $light-grey;
 	}
 }
 
@@ -168,10 +185,14 @@ body {
 		&:hover {
 			.tile-text {
 				opacity: 1;
+
+				&.extra-dark {
+					background: rgba(0, 0, 0, 0.5);
+				}
 			}
 
 			img {
-				filter: grayscale(0) brightness(50%);
+				filter: saturate(50%) brightness(50%);
 			}
 		}
 	}
@@ -197,7 +218,7 @@ body {
 
 	img {
 		display: block;
-		filter: grayscale(100%);
+		filter: saturate(0%);
 		@include transition(750ms ease);
 	}
 
@@ -435,6 +456,10 @@ body {
 
 .italic {
 	font-style: italic;
+}
+
+.bold {
+	font-weight: 500;
 }
 
 .block {

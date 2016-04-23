@@ -7,6 +7,8 @@ node_modules/
 # Directories
 # ---------------------
 src/img/
+src/_layout/*
+!src/_layout/layout.png
 
 # Packages
 # ---------------------
