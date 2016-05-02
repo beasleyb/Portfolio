@@ -1,0 +1,65 @@
+// Variables
+// ------------------------------------
+$w-100			: 100%;
+$h-100			: 100%;
+$lato			: 'Lato', sans-serif;
+$raleway		: 'Raleway', sans-serif;
+$white 			: #ffffff;
+$off-white		: #f5f4f3;
+$dark-grey		: #1b1a1b;
+$medium-grey	: #2c2b2c;
+$light-grey		: #efece7;
+$alt-grey		: #828282;
+$yellow			: #fecf39;
+$red			: #ff7979;
+// Skeleton breakpoints
+$bp-larger-than-mobile    : "min-width: 400px"  !default;
+$bp-larger-than-phablet   : "min-width: 550px"  !default;
+$bp-larger-than-tablet    : "min-width: 750px"  !default;
+$bp-larger-than-desktop   : "min-width: 1000px" !default;
+$bp-larger-than-desktophd : "min-width: 1250px" !default;
+
+
+// Mixins
+// ------------------------------------
+@mixin transition($transition...) {
+	transition:         $transition;
+	-o-transition:      $transition;
+	-ms-transition:     $transition;
+	-moz-transition:    $transition;
+	-webkit-transition: $transition;
+}
+
+@mixin transition-delay($delay...) {
+	transition-delay:         $delay;
+	-o-transition-delay:      $delay;
+	-moz-transition-delay:    $delay;
+	-webkit-transition-delay: $delay;
+}
+
+@mixin text-color($colors) {
+	@each $color in $colors {
+		$hex: null;
+
+		@if $color == 'white' 		{ $hex: $white; }
+		@if $color == 'off-white' 	{ $hex: $off-white; }
+		@if $color == 'dark-grey' 	{ $hex: $dark-grey; }
+		@if $color == 'medium-grey'	{ $hex: $medium-grey; }
+		@if $color == 'light-grey' 	{ $hex: $light-grey; }
+		@if $color == 'alt-grey' 	{ $hex: $alt-grey; }
+		@if $color == 'yellow' 		{ $hex: $yellow; }
+		@if $color == 'red' 		{ $hex: $red; }
+
+		.text-#{$color},
+		%text-#{$color} { color: $hex; }
+	}
+}
+
+
+// Functions
+// ------------------------------------
+@function rem-calc($px) {
+	// Skeleton is based on 10px for rem.
+	$remValue: $px / 10;
+	@return #{$remValue}rem;
+}

@@ -1,0 +1,68 @@
+// Contact section
+.contact {
+	padding-bottom: rem-calc(96);
+
+	.container {
+		max-width: rem-calc(960);
+	}
+
+	.contact-header {
+		margin-bottom: rem-calc(30);
+		padding: rem-calc(96) 0 rem-calc(18) 0;
+		background: $light-grey;
+	}
+
+	input {
+		height: rem-calc(48);
+	}
+
+	textarea {
+		min-height: rem-calc(192);
+		resize: vertical;
+	}
+
+	input,
+	textarea {
+		position: relative;
+		padding: rem-calc(12) rem-calc(18);
+		font-size: rem-calc(18);
+		background: $medium-grey;
+		color: $white;
+		border-radius: 0;
+		border: none;
+
+		&::-webkit-input-placeholder {
+			color: $alt-grey;
+		}
+
+		&::-moz-placeholder {
+			color: $alt-grey;
+		}
+
+		&:-ms-input-placeholder {
+			color: $alt-grey;
+		}
+
+		&:-moz-placeholder {
+			color: $alt-grey;
+		}
+
+		&:focus {
+			border: none;
+			-webkit-box-shadow: inset 6px 0px 0px 0px $yellow;
+			-moz-box-shadow: inset 6px 0px 0px 0px $yellow;
+			box-shadow: inset 6px 0px 0px 0px $yellow;
+		}
+
+		&.error {
+			color: $red;
+			-webkit-box-shadow: inset 6px 0px 0px 0px $red;
+			-moz-box-shadow: inset 6px 0px 0px 0px $red;
+			box-shadow: inset 6px 0px 0px 0px $red;
+
+			&::-webkit-input-placeholder {
+				color: $red;
+			}
+		}
+	}
+}

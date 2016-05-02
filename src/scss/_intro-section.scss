@@ -1,0 +1,12 @@
+// Intro section
+.intro {
+
+	.intro-header {
+		padding: rem-calc(30) 0;
+		background: $light-grey;
+	}
+
+	.intro-content {
+		padding: rem-calc(24) 0;
+	}
+}

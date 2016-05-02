@@ -1,0 +1,74 @@
+// Works section
+.works {
+	background: $dark-grey;
+
+	.works-header {
+		padding: rem-calc(30) 0;
+		background: $light-grey;
+	}
+
+	.tiles {
+		max-width: rem-calc(1920);
+		margin: 0 auto;
+		overflow: auto;
+	}
+
+	.tile {
+		position: relative;
+		width: $w-100;
+		float: left;
+
+		&:hover {
+			.tile-text {
+				opacity: 1;
+
+				&.extra-dark {
+					background: rgba(0, 0, 0, 0.5);
+				}
+			}
+
+			img {
+				filter: saturate(70%) contrast(80%) brightness(50%);
+			}
+		}
+	}
+
+	.tile-text {
+		z-index: 2;
+		display: flex;
+		align-items: center;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		padding: rem-calc(24);
+		color: $white;
+		text-align: center;
+		opacity: 0;
+		@include transition(750ms ease);
+	}
+
+	.button-secondary {
+		width: $w-100;
+		max-width: rem-calc(150);
+	}
+
+	img {
+		display: block;
+		filter: saturate(0%) contrast(80%);
+		@include transition(750ms ease);
+	}
+
+	@media (#{$bp-larger-than-phablet}) {
+		.tile {
+			width: $w-100/2;
+		}
+	}
+
+	@media (#{$bp-larger-than-desktophd}) {
+		.tile {
+			width: $w-100/4;
+		}
+	}
+}
