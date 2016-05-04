@@ -1,9 +1,10 @@
 // Variables
 // ------------------------------------
-$w-100			: 100%;
-$h-100			: 100%;
-$lato			: 'Lato', sans-serif;
-$raleway		: 'Raleway', sans-serif;
+$w-100		: 100%;
+$h-100		: 100%;
+$raleway	: 'Raleway', sans-serif;
+
+// Colors
 $white 			: #ffffff;
 $off-white		: #f5f4f3;
 $dark-grey		: #1b1a1b;
@@ -12,6 +13,10 @@ $light-grey		: #efece7;
 $alt-grey		: #828282;
 $yellow			: #fecf39;
 $red			: #ff7979;
+
+// Sizes
+$button-font-size 	: 20;
+
 // Skeleton breakpoints
 $bp-larger-than-mobile    : "min-width: 400px"  !default;
 $bp-larger-than-phablet   : "min-width: 550px"  !default;

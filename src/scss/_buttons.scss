@@ -5,7 +5,7 @@
 	display: inline-block;
 	width: auto;
 	padding: rem-calc(10) rem-calc(15);
-	font-size: rem-calc(20);
+	font-size: rem-calc($button-font-size);
 	color: white;
 	background: none;
 	border: none;
@@ -57,7 +57,7 @@
 	display: inline-block;
 	width: auto;
 	padding: rem-calc(10) rem-calc(15);
-	font-size: rem-calc(20);
+	font-size: rem-calc($button-font-size);
 	color: $white;
 	background: none;
 	border: 2px solid $white;
@@ -71,14 +71,17 @@
 }
 
 .submit-button {
+	@extend .icon-email;
 	height: rem-calc(48);
-	padding: rem-calc(6) rem-calc(18);
+	width: rem-calc(66);
 	background: $medium-grey;
+	background-position: center;
+	background-size: rem-calc(36);
 	color: $white;
 	border-radius: 0;
 	border: none;
 
-	img[src*=".svg"] {
-		height: rem-calc(36);
+	&:hover {
+		@extend .icon-email:hover;
 	}
 }

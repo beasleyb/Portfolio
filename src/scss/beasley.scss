@@ -8,9 +8,10 @@
 
 // Imports
 // ------------------------------------
-@import url(http://fonts.googleapis.com/css?family=Lato:300|Raleway:100,200,300,400,500);
+@import url(http://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500);
 @import "settings";
 @import "buttons";
+@import "icons";
 @import "utilities";
 @import "intro-section";
 @import "works-section";
@@ -28,9 +29,7 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 
-	h1,
-	h2,
-	h5 {
+	h1, h2, h5 {
 		font-weight: 300;
 	}
 
@@ -51,7 +50,7 @@ body {
 
 	@media (#{$bp-larger-than-phablet}) {
 		h1 { font-size: rem-calc(60); }
-		h2 { font-size: rem-calc(48); }
+		// h2 { font-size: rem-calc(48); }
 	}
 
 	a {
