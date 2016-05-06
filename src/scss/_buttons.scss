@@ -71,17 +71,18 @@
 }
 
 .submit-button {
-	@extend .icon-email;
+	@include icon('email');
 	height: rem-calc(48);
 	width: rem-calc(66);
-	background: $medium-grey;
+	background-color: $medium-grey;
 	background-position: center;
+	background-repeat: no-repeat;
 	background-size: rem-calc(36);
 	color: $white;
 	border-radius: 0;
 	border: none;
 
 	&:hover {
-		@extend .icon-email:hover;
+		@include icon('email-hover');
 	}
 }

@@ -10,9 +10,9 @@
 // ------------------------------------
 @import url(http://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500);
 @import "settings";
-@import "buttons";
 @import "icons";
 @import "utilities";
+@import "buttons";
 @import "intro-section";
 @import "works-section";
 @import "socials-section";
@@ -50,7 +50,6 @@ body {
 
 	@media (#{$bp-larger-than-phablet}) {
 		h1 { font-size: rem-calc(60); }
-		// h2 { font-size: rem-calc(48); }
 	}
 
 	a {

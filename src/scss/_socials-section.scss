@@ -9,9 +9,13 @@
 	}
 
 	.socials-icon {
-		width: rem-calc(42);
-		padding-right: rem-calc(24);
+		display: inline-block;
+		margin-right: rem-calc(24);
 		vertical-align: middle;
+	}
+
+	.button-subtext {
+		display: none;
 	}
 
 	@media (#{$bp-larger-than-phablet}) {
@@ -23,10 +27,6 @@
 			display: block;
 			margin: 0 auto rem-calc(12) auto;
 			padding-right: 0;
-		}
-
-		.button-primary > .button-subtext {
-			display: none;
 		}
 	}
 
@@ -46,11 +46,11 @@
 		}
 
 		.socials-icon {
-			display: inline;
-			padding-right: rem-calc(12);
+			display: inline-block;
+			margin-right: rem-calc(12);
 		}
 
-		.button-primary > .button-subtext {
+		.button-subtext {
 			display: inline;
 		}
 	}

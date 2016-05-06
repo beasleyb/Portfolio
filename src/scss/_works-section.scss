@@ -18,7 +18,8 @@
 		width: $w-100;
 		float: left;
 
-		&:hover {
+		&:hover,
+		&:focus {
 			.tile-text {
 				opacity: 1;
 

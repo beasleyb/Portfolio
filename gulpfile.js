@@ -59,7 +59,7 @@ gulp.task('copy', function() {
 		.pipe(browsersync.reload({stream:true}));
 
 	var images = gulp
-		.src('src/img/*.*')
+		.src(['src/img/*.*', '!src/img/*.svg'])
 		.pipe(gulp.dest('public/img'));
 
 	return merge(html, images);
