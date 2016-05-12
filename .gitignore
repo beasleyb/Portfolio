@@ -9,6 +9,7 @@ node_modules/
 src/img/
 src/_layout/*
 !src/_layout/layout.png
+!src/_layout/layout_mobile.png
 
 # Packages
 # ---------------------

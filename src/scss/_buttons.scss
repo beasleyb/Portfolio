@@ -71,7 +71,6 @@
 }
 
 .submit-button {
-	@include icon('email');
 	height: rem-calc(48);
 	width: rem-calc(66);
 	background-color: $medium-grey;
@@ -81,6 +80,8 @@
 	color: $white;
 	border-radius: 0;
 	border: none;
+	@include icon('email');
+	@include transition(300ms ease);
 
 	&:hover {
 		@include icon('email-hover');

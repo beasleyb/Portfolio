@@ -10,6 +10,7 @@ var uglify 			= require('gulp-uglify');
 var rename			= require('gulp-rename');
 var autoprefixer	= require('gulp-autoprefixer');
 
+
 // --------------------------------------------
 // Browsersync
 // --------------------------------------------
@@ -21,6 +22,7 @@ gulp.task('browsersync', function() {
 		}
 	});
 });
+
 
 // --------------------------------------------
 // Sass
@@ -48,6 +50,7 @@ gulp.task('sass:vendor', function () {
 		.pipe(browsersync.reload({stream:true}));
 });
 
+
 // --------------------------------------------
 // Copy
 // --------------------------------------------
@@ -65,6 +68,7 @@ gulp.task('copy', function() {
 	return merge(html, images);
 });
 
+
 // --------------------------------------------
 // Watch
 // --------------------------------------------
@@ -74,6 +78,7 @@ gulp.task('watch', ['browsersync'], function () {
 	gulp.watch('src/scss/vendor/*.scss', ['sass:vendor']);
 	gulp.watch(['src/*.html', 'src/img/*.*'], ['copy']);
 });
+
 
 // --------------------------------------------
 // Default

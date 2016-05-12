@@ -2,6 +2,14 @@
 // ------------------------------------
 @include text-color('white' 'off-white' 'dark-grey' 'medium-grey' 'light-grey' 'alt-grey' 'yellow' 'red');
 
+@for $i from 1 through 10 {
+	$percent : $i * 10;
+
+	.w-#{$percent} {
+		width: $percent * 1%;
+	}
+}
+
 .upper {
 	text-transform: uppercase;
 }
@@ -37,6 +45,19 @@
 
 .inline-block {
 	display: inline-block;
+}
+
+.clearfix {
+	*zoom: 1;
+
+	&:before, &:after {
+		content: " ";
+		display: table;
+	}
+
+	&:after {
+		clear: both;
+	}
 }
 
 .keywords {
