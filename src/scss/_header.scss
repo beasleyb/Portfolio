@@ -1,0 +1,50 @@
+// Header
+// ------------------------------------
+.header {
+	color: $white;
+	background: $medium-grey;
+	text-align: center;
+	padding: rem-calc(150) 0;
+
+	h5 {
+		font-weight: 200;
+		margin-bottom: rem-calc(30);
+	}
+
+	.bracket {
+		display: none;
+		color: $yellow;
+		font-weight: 400;
+		padding: 0 rem-calc(6);
+	}
+
+	.header-links {
+		text-align: center;
+		max-width: rem-calc(225);
+		margin: 0 auto;
+	}
+
+	.header-link {
+		display: block;
+		width: 50%;
+		margin-top: rem-calc(30);
+		float: left;
+		text-align: center;
+	}
+
+	@media (#{$bp-larger-than-phablet}) {
+		.header-links {
+			max-width: rem-calc(750);
+		}
+
+		.header-link {
+			width: 25%;
+		}
+	}
+
+	@media (#{$bp-larger-than-desktop}) {
+		.bracket {
+			display: inline-block;
+		}
+	}
+}

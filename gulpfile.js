@@ -6,10 +6,26 @@ var browsersync		= require('browser-sync').create();
 var merge 			= require('merge-stream');
 var gulp 			= require('gulp');
 var sass 			= require('gulp-sass');
+var concat			= require('gulp-concat');
 var uglify 			= require('gulp-uglify');
 var rename			= require('gulp-rename');
 var autoprefixer	= require('gulp-autoprefixer');
 
+// --------------------------------------------
+// File paths
+// --------------------------------------------
+
+var jsFiles	= {
+	source: 'src/js/*.js',
+	dest: 'public/js'
+};
+
+var scssFiles = {
+	customSource: 'src/scss/*.scss',
+	customDest: 'public/css',
+	venderSource: 'src/scss/vendor/*.scss',
+	vendorDest: 'public/css/vendor'
+};
 
 // --------------------------------------------
 // Browsersync
@@ -23,6 +39,18 @@ gulp.task('browsersync', function() {
 	});
 });
 
+// --------------------------------------------
+// Scripts
+// --------------------------------------------
+
+gulp.task('scripts', function() {  
+    return gulp
+    	.src(jsFiles.source)
+        .pipe(concat('beasley.min.js'))
+        .pipe(uglify({mangle: false}))
+        .pipe(gulp.dest(jsFiles.dest))
+        .pipe(browsersync.reload({stream:true}));
+});
 
 // --------------------------------------------
 // Sass
@@ -31,22 +59,22 @@ gulp.task('browsersync', function() {
 // Custom
 gulp.task('sass:custom', function () {
 	return gulp
-		.src('src/scss/*.scss')
+		.src(scssFiles.customSource)
 		.pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
 		.pipe(autoprefixer({ browsers: ['last 2 versions'], cascade: false }))
 		.pipe(rename({suffix:'.min'}))
-		.pipe(gulp.dest('public/css'))
+		.pipe(gulp.dest(scssFiles.customDest))
 		.pipe(browsersync.reload({stream:true}));
 });
 
 // Vendor
 gulp.task('sass:vendor', function () {
 	return gulp
-		.src('src/scss/vendor/*.scss')
+		.src(scssFiles.vendorSource)
 		.pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
 		.pipe(autoprefixer({ browsers: ['last 2 versions'], cascade: false }))
 		.pipe(rename({suffix:'.min'}))
-		.pipe(gulp.dest('public/css/vendor'))
+		.pipe(gulp.dest(scssFiles.vendorDest))
 		.pipe(browsersync.reload({stream:true}));
 });
 
@@ -74,8 +102,9 @@ gulp.task('copy', function() {
 // --------------------------------------------
 
 gulp.task('watch', ['browsersync'], function () {
-	gulp.watch('src/scss/*.scss', ['sass:custom']);
-	gulp.watch('src/scss/vendor/*.scss', ['sass:vendor']);
+	gulp.watch(jsFiles.source, ['scripts']);
+	gulp.watch(scssFiles.customSource, ['sass:custom']);
+	gulp.watch(scssFiles.vendorSource, ['sass:vendor']);
 	gulp.watch(['src/*.html', 'src/img/*.*'], ['copy']);
 });
 
@@ -84,4 +113,4 @@ gulp.task('watch', ['browsersync'], function () {
 // Default
 // --------------------------------------------
 
-gulp.task('default', ['sass:custom', 'sass:vendor', 'copy', 'browsersync', 'watch']);
+gulp.task('default', ['scripts', 'sass:custom', 'sass:vendor', 'copy', 'browsersync', 'watch']);
