@@ -73,6 +73,7 @@
 .submit-button {
 	height: rem-calc(48);
 	width: rem-calc(66);
+	background-image: url(map-get($icons, email));
 	background-color: $medium-grey;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -80,10 +81,9 @@
 	color: $white;
 	border-radius: 0;
 	border: none;
-	@include icon('email');
 	@include transition(300ms ease);
 
 	&:hover {
-		@include icon('email-hover');
+		background-image: url(map-get($icons, email-hover));
 	}
 }

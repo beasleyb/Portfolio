@@ -274,17 +274,17 @@
 				</div>
 			</div>
 			<div class="container">
-				<form>
+				<form id="contactForm" method="POST">
 					<div class="row">
 						<div class="six columns">
-							<input class="u-full-width" type="text" placeholder="Name" id="contactName">
+							<input class="u-full-width" type="text" placeholder="Name" id="nameField" required>
 						</div>
 						<div class="six columns">
-							<input class="u-full-width" type="email" placeholder="Email" id="contactEmail" required>
+							<input class="u-full-width" type="email" placeholder="Email" id="emailField" required>
 						</div>
 					</div>
-					<textarea class="u-full-width" placeholder="Message..." id="contactMessage"></textarea>
-					<button class="submit-button" type="submit" id="contactSubmit"></button>
+					<textarea class="u-full-width" placeholder="Message..." id="messageField" required></textarea>
+					<button class="submit-button" type="submit"></button>
 				</form>
 			</div>
 		</div>

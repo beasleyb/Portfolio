@@ -2,6 +2,6 @@
 // Accessibility
 // --------------------------------------------
 
-function a11yInit(){
+function a11y(){
 	console.log('a11y fired');
 }

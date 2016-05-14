@@ -8,12 +8,13 @@
 
 "use strict";
 
-function pageInit() {
-	a11yInit();
-	validateInit();
-}
-
-// Call pageInit on DOM ready.
+// Call _init on DOM ready.
 $(function(){
-	pageInit();
+	_init();
 });
+
+// _init calls modularized, named functions.
+function _init() {
+	a11y();
+	validate();
+}

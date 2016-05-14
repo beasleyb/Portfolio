@@ -23,7 +23,7 @@ var jsFiles	= {
 var scssFiles = {
 	customSource: 'src/scss/*.scss',
 	customDest: 'public/css',
-	venderSource: 'src/scss/vendor/*.scss',
+	vendorSource: 'src/scss/vendor/*.scss',
 	vendorDest: 'public/css/vendor'
 };
 
