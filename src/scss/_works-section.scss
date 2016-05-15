@@ -2,6 +2,10 @@
 .works {
 	background: $dark-grey;
 
+	p {
+		margin-bottom: 0;
+	}
+
 	.works-header {
 		padding: rem-calc(30) 0;
 		background: $light-grey;

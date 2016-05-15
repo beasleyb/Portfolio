@@ -64,5 +64,11 @@
 				color: $red;
 			}
 		}
+
+		&.success {
+			-webkit-box-shadow: inset 6px 0px 0px 0px $green;
+			-moz-box-shadow: inset 6px 0px 0px 0px $green;
+			box-shadow: inset 6px 0px 0px 0px $green;
+		}
 	}
 }
