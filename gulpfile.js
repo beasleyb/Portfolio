@@ -16,7 +16,7 @@ var autoprefixer	= require('gulp-autoprefixer');
 // --------------------------------------------
 
 var jsFiles	= {
-	source: 'src/js/*.js',
+	source: ['src/js/_init.js', 'src/js/*.js'],
 	dest: 'public/js'
 };
 
@@ -47,7 +47,7 @@ gulp.task('scripts', function() {
     return gulp
     	.src(jsFiles.source)
         .pipe(concat('beasley.min.js'))
-        .pipe(uglify({mangle: false}))
+        .pipe(uglify({mangle: false, output: {comments: /^!|@preserve|@license|@cc_on/i}}))
         .pipe(gulp.dest(jsFiles.dest))
         .pipe(browsersync.reload({stream:true}));
 });

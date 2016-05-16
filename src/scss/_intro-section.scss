@@ -1,5 +1,20 @@
 // Intro section
+// ------------------------------------
+// To do:
+// 1. Redo everything. This is horrible.
+//    Who enjoy talking about themselves, really?
+
 .intro {
+
+	p {
+		margin: 0;
+	}
+
+	h5 {
+		padding-bottom: rem-calc(3);
+		margin: rem-calc(6) 0;
+		border-bottom: 1px solid $light-grey;
+	}
 
 	.intro-header {
 		padding: rem-calc(30) 0;
@@ -7,6 +22,18 @@
 	}
 
 	.intro-content {
-		padding: rem-calc(24) 0;
+		padding: rem-calc(48) 0;
+	}
+
+	.self-portrait {
+		display: block;
+		max-width: rem-calc(400);
+		margin-bottom: rem-calc(12);
+	}
+
+	@media (#{$bp-larger-than-phablet}) {
+		h5 {
+			margin-bottom: rem-calc(12);
+		}
 	}
 }

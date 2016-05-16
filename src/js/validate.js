@@ -90,7 +90,7 @@ function validate(){
 		var fieldValue 	= field.val(),
 			fieldID		= field.attr('id');
 
-		// Method lookup based on field
+		// Method lookup for fields
 		var keyupActions = {
 			'nameField': function(){
 				return nameValidation(fieldValue)
