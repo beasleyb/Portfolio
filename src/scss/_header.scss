@@ -1,8 +1,5 @@
 // Header
 // ------------------------------------
-// To do:
-// 1. link icons need hover state
-
 .header {
 	color: $white;
 	background: $medium-grey;
@@ -26,6 +23,33 @@
 		margin-top: rem-calc(30);
 		float: left;
 		text-align: center;
+
+		.icon-codepen,
+		.icon-linkedin,
+		.icon-github,
+		.icon-pdf {
+			position: relative;
+			padding: 10px;
+			border-radius: 30px;
+			background-origin: content-box;
+
+			&:before {
+				content: "";
+				position: absolute;
+				width: 0%;
+				bottom: 0;
+				left: 0;
+				height: rem-calc(2);
+				background-color: #fecf38;
+				@include transition(.3s ease);
+			}
+
+			&:hover {
+				&:before {
+					width: 100%;
+				}
+			}
+		}
 	}
 
 	@media (#{$bp-larger-than-phablet}) {
