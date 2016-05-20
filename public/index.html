@@ -42,9 +42,9 @@
 
 		<div class="header">
 			<div class="container">
-				<h1 class="upper inline-block"> Brandon Beasley </h1>
+				<h1 class="upper inline-block">Brandon Beasley</h1>
 				<h5 class="text-alt-grey" data-headline="main">// front-end developer, digital hooligan</h5>
-				<div class="header-links">
+				<div class="header-links-container">
 					<div class="header-link">
 						<a href="https://github.com/beasleyb" alt="My Github profile">
 							<div class="icon-github icon-large inline-block"></div>
@@ -86,7 +86,7 @@
 						<div class="nine columns">
 							<h5 class="bold text-dark-grey">Hello, I'm Brandon.</h5>
 							<p class="blurb text-justify">
-								I’m a front-end developer currently working for Verizon Wireless. I have several years’ experience in the craft with concentrations in responsive framework development and web accessibility. I’ve worked on an array of projects -- from learning management systems to NASA funded application development.
+								I’m a front-end developer currently working for Verizon Wireless. I have several years experience in the craft with concentrations in responsive framework development and web accessibility. I’ve worked on an array of projects -- from learning management systems to NASA funded application development.
 								<br><br>
 								Web development aside, if you enjoy talking about space we can be best friends.
 							</p>
@@ -290,13 +290,13 @@
 				<form id="contactForm" method="POST">
 					<div class="row">
 						<div class="six columns">
-							<input class="u-full-width" type="text" placeholder="Name" id="nameField">
+							<input class="u-full-width" type="text" placeholder="Name" id="nameField" required>
 						</div>
 						<div class="six columns">
-							<input class="u-full-width" type="email" placeholder="Email" id="emailField">
+							<input class="u-full-width" type="email" placeholder="Email" id="emailField" required>
 						</div>
 					</div>
-					<textarea class="u-full-width" placeholder="Message..." id="messageField"></textarea>
+					<textarea class="u-full-width" placeholder="Message..." id="messageField" required></textarea>
 					<button class="submit-button" type="submit"></button>
 				</form>
 			</div>
@@ -326,5 +326,15 @@
 	<!-- JavaScript -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="js/beasley.min.js"></script>
+	<!-- Google Analytics -->
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-78013329-1', 'auto');
+	  ga('send', 'pageview');
+	</script>
 
 </HTML>

@@ -3,5 +3,5 @@
 // --------------------------------------------
 
 function a11y(){
-	console.log('a11y fired');
+	// console.log('a11y fired');
 }

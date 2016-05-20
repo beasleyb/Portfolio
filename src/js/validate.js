@@ -2,7 +2,8 @@
 // Contact form validation
 // --------------------------------------------
 // To do:
-// 1. Switch to NodeMailer after port to Express.
+// 1. Add success/failure notifications on POST.
+// 2. Switch to NodeMailer after port to Express.
 
 function validate(){
 

@@ -14,14 +14,7 @@
 		margin-bottom: rem-calc(30);
 	}
 
-	.bracket {
-		display: none;
-		color: $yellow;
-		font-weight: 400;
-		padding: 0 rem-calc(6);
-	}
-
-	.header-links {
+	.header-links-container {
 		text-align: center;
 		max-width: rem-calc(225);
 		margin: 0 auto;
@@ -36,18 +29,12 @@
 	}
 
 	@media (#{$bp-larger-than-phablet}) {
-		.header-links {
+		.header-links-container {
 			max-width: rem-calc(750);
 		}
 
 		.header-link {
 			width: 25%;
-		}
-	}
-
-	@media (#{$bp-larger-than-desktop}) {
-		.bracket {
-			display: inline-block;
 		}
 	}
 }

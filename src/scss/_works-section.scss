@@ -2,7 +2,7 @@
 // ------------------------------------
 
 .works {
-	background: $dark-grey;
+	background: $alt-grey;
 
 	p {
 		margin-bottom: 0;
@@ -14,7 +14,7 @@
 	}
 
 	.tiles {
-		max-width: rem-calc(1920);
+		max-width: rem-calc(2400);
 		margin: 0 auto;
 		overflow: auto;
 	}
