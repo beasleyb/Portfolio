@@ -17,6 +17,7 @@
 		max-width: rem-calc(2400);
 		margin: 0 auto;
 		overflow: auto;
+		border-top: rem-calc(20) solid $medium-grey;
 	}
 
 	.tile {
@@ -63,7 +64,7 @@
 
 	img {
 		display: block;
-		filter: saturate(0%) contrast(80%);
+		filter: saturate(80%) contrast(90%);
 		@include transition(750ms ease);
 	}
 

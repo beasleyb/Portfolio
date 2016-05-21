@@ -1,13 +1,13 @@
 // Header
 // ------------------------------------
 .header {
-	color: $white;
-	background: $medium-grey;
+	color: $medium-grey;
+	background: $yellow;
 	text-align: center;
 	padding: rem-calc(150) 0;
 
 	h5 {
-		font-weight: 200;
+		padding: 0 rem-calc(10);
 		margin-bottom: rem-calc(30);
 	}
 
@@ -24,10 +24,10 @@
 		float: left;
 		text-align: center;
 
-		.icon-codepen,
-		.icon-linkedin,
-		.icon-github,
-		.icon-pdf {
+		.icon-codepen-alt,
+		.icon-linkedin-alt,
+		.icon-github-alt,
+		.icon-pdf-alt {
 			position: relative;
 			padding: 10px;
 			border-radius: 30px;
@@ -39,8 +39,8 @@
 				width: 0%;
 				bottom: 0;
 				left: 0;
-				height: rem-calc(2);
-				background-color: #fecf38;
+				height: rem-calc(3);
+				background-color: $medium-grey;
 				@include transition(.3s ease);
 			}
 

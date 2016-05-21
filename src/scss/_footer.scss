@@ -1,10 +1,11 @@
 // Footer
 // ------------------------------------
 .footer {
-	padding: rem-calc(36) 0;
+	padding: rem-calc(48) 0;
 	background: $medium-grey;
 	color: $white;
 	font-size: rem-calc(14);
+	border-top: rem-calc(20) solid $yellow;
 
 	.container {
 		max-width: rem-calc(960);
