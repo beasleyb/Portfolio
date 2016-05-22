@@ -14,9 +14,9 @@
 @import "utilities";
 @import "buttons";
 @import "header";
-@import "intro-section";
 @import "works-section";
 @import "socials-section";
+@import "about-section";
 @import "contact-section";
 @import "footer";
 
@@ -45,9 +45,9 @@ body {
 
 	h5 {
 		margin-bottom: 0;
-		letter-spacing: 1px;
 		color: $alt-grey;
-		font-weight: 300;
+		letter-spacing: 1px;
+		font-weight: 400;
 	}
 
 	@media (#{$bp-larger-than-phablet}) {

@@ -11,6 +11,10 @@
 		margin-bottom: rem-calc(30);
 	}
 
+	.container {
+		max-width: rem-calc($alt-container-width);
+	}
+
 	.header-links-container {
 		text-align: center;
 		max-width: rem-calc(225);

@@ -3,14 +3,15 @@
 
 .contact {
 	padding-bottom: rem-calc(96);
-
-	.container {
-		max-width: rem-calc(960);
-	}
+	background: $yellow;
 
 	.contact-header {
 		margin-bottom: rem-calc(30);
 		padding: rem-calc(96) 0 rem-calc(18) 0;
+	}
+
+	form {
+		margin: 0;
 	}
 
 	input {
@@ -50,9 +51,9 @@
 
 		&:focus {
 			border: none;
-			-webkit-box-shadow: inset 6px 0px 0px 0px $yellow;
-			-moz-box-shadow: inset 6px 0px 0px 0px $yellow;
-			box-shadow: inset 6px 0px 0px 0px $yellow;
+			-webkit-box-shadow: inset 6px 0px 0px 0px $white;
+			-moz-box-shadow: inset 6px 0px 0px 0px $white;
+			box-shadow: inset 6px 0px 0px 0px $white;
 		}
 
 		&.error {

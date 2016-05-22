@@ -1,0 +1,43 @@
+// Intro section
+// ------------------------------------
+// To do:
+// 1. Redo everything. This is horrible.
+//    Who enjoys talking about themselves, really?
+
+.about {
+	padding: rem-calc(96) 0;
+
+	p {
+		margin: 0;
+	}
+
+	.about-header {
+		margin-bottom: rem-calc(30);
+	}
+
+	.about-content {
+		padding: 0;
+	}
+
+	.self-portrait {
+		display: block;
+		max-width: rem-calc(240);
+		margin: 0 auto rem-calc(24) auto;
+		// border: 4px solid $alt-grey;
+		border-radius: 50%;
+	}
+
+	@media (#{$bp-larger-than-phablet}) {
+		h5 {
+			margin-bottom: rem-calc(12);
+		}
+
+		.self-portrait {
+			margin-bottom: rem-calc(10);
+		}
+
+		.blurb {
+			padding-left: rem-calc(12);
+		}
+	}
+}
