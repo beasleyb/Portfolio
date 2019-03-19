@@ -280,16 +280,17 @@
 				</div>
 			</div>
 			<div class="container">
-				<form id="contactForm" method="POST">
+				<form id="contactForm" method="POST" action="https://formspree.io/contact@brandonebasley.site">
 					<div class="row">
 						<div class="six columns">
-							<input class="u-full-width" type="text" placeholder="Name" id="nameField" required>
+							<input class="u-full-width" type="text" name="name" placeholder="Name" id="nameField" required>
 						</div>
 						<div class="six columns">
-							<input class="u-full-width" type="email" placeholder="Email" id="emailField" required>
+							<input class="u-full-width" type="email" name="email" placeholder="Email" id="emailField" required>
 						</div>
 					</div>
-					<textarea class="u-full-width" placeholder="Message..." id="messageField" required></textarea>
+					<input type="hidden" name="_subject" value="Portoflio form submission."/>
+					<textarea class="u-full-width" name="message" placeholder="Message..." id="messageField" required></textarea>
 					<button class="submit-button" type="submit"></button>
 				</form>
 			</div>
